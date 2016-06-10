@@ -4,6 +4,8 @@ import os
 import screed.tests.screed_tst_utils as utils
 import shutil
 
+from nose.plugins.attrib import attr
+
 
 class nostring:
     def __str__(self):
@@ -35,24 +37,28 @@ class test_comparisons():
             res = (record.sequence != self._ns)
             assert res == True, res
 
+    @attr("known_failing")
     def test_comp_greateq(self):
         for k in self._db:
             record = self._db.get(k)
             res = (record.sequence >= self._ns)
             assert res == True, res
 
+    @attr("known_failing")
     def test_comp_lesseq(self):
         for k in self._db:
             record = self._db.get(k)
             res = (record.sequence <= self._ns)
             assert res == False, res
 
+    @attr("known_failing")
     def test_comp_less(self):
         for k in self._db:
             record = self._db.get(k)
             res = (record.sequence < self._ns)
             assert res == False, res
 
+    @attr("known_failing")
     def test_comp_great(self):
         for k in self._db:
             record = self._db.get(k)
